@@ -59,6 +59,30 @@ TEST(Rational,multiply) {
     EXPECT_EQ(c.getDenominator(),2);
 }
 
+TEST(Rational,plus) {
+    Rational<int> a(1,1) , b(2,2);
+    Rational<int> c = a + b;
+    EXPECT_EQ(a.getNumerator(),1);
+    EXPECT_EQ(b.getNumerator(),2);
+    EXPECT_EQ(c.getNumerator(),4);
+
+    EXPECT_EQ(a.getDenominator(),1);
+    EXPECT_EQ(b.getDenominator(),2);
+    EXPECT_EQ(c.getDenominator(),2);
+}
+
+TEST(Rational,minus) {
+    Rational<int> a(1,1) , b(2,2);
+    Rational<int> c = a - b;
+    EXPECT_EQ(a.getNumerator(),1);
+    EXPECT_EQ(b.getNumerator(),2);
+    EXPECT_EQ(c.getNumerator(),0);
+    
+    EXPECT_EQ(a.getDenominator(),1);
+    EXPECT_EQ(b.getDenominator(),2);
+    EXPECT_EQ(c.getDenominator(),2);
+}
+
 int main(int argc,char ** argv){
   testing::InitGoogleTest(&argc,argv);
   return RUN_ALL_TESTS();

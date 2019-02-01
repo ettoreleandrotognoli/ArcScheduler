@@ -81,12 +81,18 @@ inline const Rational<T> operator/(const Rational<T>& a, const Rational<T>& b) {
 
 template<typename T>
 inline const Rational<T> operator+(const Rational<T>& a, const Rational<T>& b) {
-    
+    return Rational<T>(
+        a.getNumerator() * b.getDenominator() + b.getNumerator() * a.getDenominator(),
+        a.getDenominator() + b.getDenominator()
+    );
 }
 
 template<typename T>
 inline const Rational<T> operator-(const Rational<T>& a, const Rational<T>& b) {
-    
+    return Rational<T>(
+        a.getNumerator() * b.getDenominator() - b.getNumerator() * a.getDenominator(),
+        a.getDenominator() + b.getDenominator()
+    );
 }
 
 #endif
